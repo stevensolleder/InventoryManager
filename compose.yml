@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  mariadb:
+    image: mariadb:10.10.3
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_USER: inventorymanager
+      MYSQL_PASSWORD: 1234
+      MYSQL_DATABASE: inventorymanager
+    ports:
+      - "19265:3306/tcp"
+    restart: always
+  clamav:
+    image: mkodockx/docker-clamav:1.1.2-buster
+    ports:
+      - "52371:3310/tcp"
+    restart: always
